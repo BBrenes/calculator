@@ -3,7 +3,8 @@ const calculator = {
     firstOperand: null,
     initDigit: false,
     operation: null,
-    secondOp : false
+    secondOp : false,
+    afterEqual : false
 }
 
 function add (a, b){
@@ -52,9 +53,11 @@ function updateDisplay(){
   }
 
 function enterDigit(digit){
-if (calculator.operation !== null && calculator.initDigit === true || calculator.displayValue == 'Error'){
+if (calculator.operation !== null && calculator.initDigit === true || calculator.displayValue == 'Error' ||
+calculator.afterEqual === true){
     calculator.displayValue = 0;
     calculator.initDigit = false;
+    calculator.afterEqual = false;
 }
 if(calculator.operation != null){
     calculator.secondOp =  true;
@@ -98,6 +101,9 @@ function manageEqual(){
     }
     calculator.firstOperand = calculator.displayValue;
     calculator.operation = null;
+    calculator.initDigit = true;
+    calculator.secondOp = false;
+    calculator.afterEqual = true;
 }
 
 const keys = document.querySelectorAll('button')
