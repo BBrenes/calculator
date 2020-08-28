@@ -35,6 +35,9 @@ html {
     padding-left: 20px;
     padding-top: 20px;
     border-radius: 30px;
+    opacity: 1;
+    -webkit-text-fill-color:#fff;
+    -webkit-opacity: 1;
   }
 
   button {
